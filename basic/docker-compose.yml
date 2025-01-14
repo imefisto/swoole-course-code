@@ -1,0 +1,7 @@
+services :
+  app :
+    image : phpswoole/swoole:6.0.0-php8.3
+    volumes :
+      - ./:/var/www/
+    ports :
+      - "9501:9501"
