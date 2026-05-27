@@ -10,6 +10,7 @@ $overallStart = microtime(true);
 
 foreach ($urls as $url) {
     $start = microtime(true);
+    echo "Requesting $url ..." . PHP_EOL;
     $data = file_get_contents($url);
     $elapsed = round(microtime(true) - $start, 2);
     echo "Finished $url in {$elapsed}s\n";

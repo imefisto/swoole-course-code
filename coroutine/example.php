@@ -1,6 +1,8 @@
 <?php
 use Swoole\Coroutine\WaitGroup;
 
+\Swoole\Runtime::enableCoroutine();
+
 Co\run(function () {
     $urls = [
         "https://httpbin.org/delay/2",
@@ -15,6 +17,7 @@ Co\run(function () {
         Co\go(function () use ($url, $wg) {
             $wg->add();
             $start = microtime(true);
+            echo "Requesting $url ...\n";
             $response = file_get_contents($url);
             $elapsed = microtime(true) - $start;
             echo "Finished $url in {$elapsed}s\n";
